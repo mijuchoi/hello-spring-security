@@ -17,7 +17,6 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark mb-4">
     <div class="container">
         <a class="navbar-brand" th:href="@{/home}">HanSung</a>
@@ -43,25 +42,29 @@
 </nav>
 
 <div class="container">
-    <!-- Welcome Card -->
     <div class="welcome-card p-4 mb-4">
         <h4 class="fw-bold mb-1">환영합니다!</h4>
         <p class="mb-1 opacity-75" th:text="${username}"></p>
         <div class="mt-2">
-            <!-- 컨트롤러에서 ROLE_ 접두사를 제거한 문자열 목록을 전달받음 -->
             <span th:each="role : ${roles}"
                   class="badge bg-white text-dark badge-role me-1"
                   th:text="${role}"></span>
         </div>
     </div>
 
-    <!-- Quick Links -->
     <div class="row g-3">
         <div class="col-md-4">
             <div class="card stat-card p-4 h-100">
                 <h6 class="fw-bold">상품 목록</h6>
                 <p class="text-muted small mb-3">등록된 상품을 조회합니다.</p>
                 <a th:href="@{/products}" class="btn btn-primary btn-sm mt-auto">바로가기</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card stat-card p-4 h-100">
+                <h6 class="fw-bold">비밀번호 변경</h6>
+                <p class="text-muted small mb-3">비밀번호를 변경합니다.</p>
+                <a th:href="@{/user/password}" class="btn btn-secondary btn-sm mt-auto">바로가기</a>
             </div>
         </div>
         <div class="col-md-4" sec:authorize="hasRole('ADMIN')">
@@ -80,6 +83,11 @@
         </div>
     </div>
 </div>
+
+<footer class="text-center text-muted mt-5 mb-3 small">
+    실습 수행 일시: <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy년 MM월 dd일 HH:mm:ss')}"></span>
+    &nbsp;│&nbsp; 학번: 2171434 &nbsp;│&nbsp; 성명: 최미주
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

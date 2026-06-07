@@ -68,7 +68,12 @@
         </div>
     </div>
 </div>
+<footer class="text-center text-muted mt-5 mb-3 small">
+    실습 수행 일시: <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy년 MM월 dd일 HH:mm:ss')}"></span>
+    &nbsp;│&nbsp; 학번: 2171434 &nbsp;│&nbsp; 성명: 최미주
+</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
